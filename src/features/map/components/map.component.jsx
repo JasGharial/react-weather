@@ -12,7 +12,8 @@ const MapComponent = () => {
   const { location, locationCoords } = useContext(LocationContext);
 
   return (
-    <div className="leaflet-container">
+    <div className="map-component-container">
+      <div className="leaflet-container">
       <MapContainer center={locationCoords} zoom={8} animate={false} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy;
@@ -23,6 +24,7 @@ const MapComponent = () => {
           <Popup>Current Location: {location}</Popup>
         </Marker>
       </MapContainer>
+    </div>
     </div>
   );
 };
