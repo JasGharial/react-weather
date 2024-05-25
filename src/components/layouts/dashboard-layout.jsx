@@ -1,6 +1,6 @@
 const DashboardLayout = ({children}) => {
   return(
-    <div className="grid grid-cols-2 gap-4">
+    <div className="dashboard-layout-container grid gap-4">
       {children}
     </div>
   )

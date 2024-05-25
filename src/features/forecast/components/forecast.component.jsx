@@ -3,7 +3,8 @@ import { useContext, useEffect } from "react";
 import { LocationContext } from "../../../contexts/location.context";
 import { ForecastContext } from "../../../contexts/forecast.context";
 
-// Components
+// Layouts and Components
+import CardLayout from "../../../components/layouts/card-layout";
 import CurrentForecast from "./current-forecast.component";
 
 // APIs
@@ -15,18 +16,20 @@ const Forecast = () => {
 
   useEffect(() => {
     const getWeatherForecastAPI = async () => {
-    await getWeatherForecast(location)
-    .then((response) => setForecast(response))
-    }
+      await getWeatherForecast(location).then((response) =>
+        setForecast(response)
+      );
+    };
     getWeatherForecastAPI();
-  }, [])
+  }, []);
 
   return (
-    <div className="forecast-container container">
-      Forecast Component
-      <CurrentForecast />
-    </div>
-  )
-}
+    <CardLayout>
+      <div className="forecast-container container">
+        <CurrentForecast />
+      </div>
+    </CardLayout>
+  );
+};
 
 export default Forecast;
